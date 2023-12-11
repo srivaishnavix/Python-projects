@@ -8,7 +8,7 @@ class Player:
     def get_move(slef, game):
         pass
 
-class RandomComputerPlayer():
+class RandomComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
