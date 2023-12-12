@@ -1,8 +1,9 @@
-from basic_player import HumanPlayer, RandomComputerPlayer
+import time
+from player import HumanPlayer, RandomComputerPlayer
 
 class TicTacToe:
     def __init__(self):
-        self.board = ['' for _ in range(9)]# list to keep track of 3*3 board
+        self.board = [' ' for _ in range(9)]# list to keep track of 3*3 board
         self.current_winner = None #to keep track of winner!
 
     def print_board(self):
@@ -22,7 +23,7 @@ class TicTacToe:
         for (i, spot) in enumerate(self.board):
             # ['x', 'x', 'o'] -->[(0,'x'), (1, 'x'), (2, 'o')]
             if spot == ' ':
-                moves.append(i)
+                moves.ap pend(i)
         return moves'''
     
     def empty_squares(self):
@@ -79,10 +80,14 @@ def play(game, x_player, o_player, print_game=True):
             if game.current_winner:
                 if print_game:
                     print(letter + ' wins!')
+                return letter
 
             letter = 'O' if letter == 'X' else 'X'
-        if print_game:
-            print('It\'s a tie!')
+
+        time.sleep(0.8)
+        
+    if print_game:
+        print('It\'s a tie!')
 
 if __name__ == '__main__':
     x_player = HumanPlayer('X')

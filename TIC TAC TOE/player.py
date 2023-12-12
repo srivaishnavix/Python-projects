@@ -5,7 +5,7 @@ class Player:
     def __init__(self, letter):
         self.letter = letter#here letter is the input we take either x or o
 
-    def get_move(slef, game):
+    def get_move(self, game):
         pass
 
 class RandomComputerPlayer(Player):
@@ -25,7 +25,7 @@ class HumanPlayer(Player):
         valid_square = False
         val = None
         while not valid_square:
-            square = input(self.letter + '\'s turn. Input move (0-9):')
+            square = input(self.letter + '\'s turn. Input move (0-8):')
             try:
                 val = int(square)
                 if val not in game.available_moves():
@@ -33,4 +33,5 @@ class HumanPlayer(Player):
                 valid_square = True 
             except ValueError:
                 print("Invalid square. Try again.")
+
         return val
