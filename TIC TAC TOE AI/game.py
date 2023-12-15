@@ -4,13 +4,17 @@ from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
 
 class TicTacToe:
     def __init__(self):
-        self.board = [' ' for _ in range(9)]# list to keep track of 3*3 board
+        self.board = self.make_board()
         self.current_winner = None #to keep track of winner!
+
+    @staticmethod
+    def make_board():
+        return [' ' for _ in range(9)]# list to keep track of 3*3 board
 
     def print_board(self):
         for row in [self.board[i*3:(i+1)*3] for i in range(3)]:
             print('| '+' | '.join(row)+' |')
-
+    
     @staticmethod
     def print_board_nums():
         #0 | 1 | 2 etc (to show us which number corresponds to a box)
@@ -18,21 +22,6 @@ class TicTacToe:
         for row in number_board:
             print('| '+' | '.join(row)+' |')
 
-    def available_moves(self):
-        return[i for i, spot in enumerate(self.board) if spot == ' ']
-        '''moves = []
-        for (i, spot) in enumerate(self.board):
-            # ['x', 'x', 'o'] -->[(0,'x'), (1, 'x'), (2, 'o')]
-            if spot == ' ':
-                moves.ap pend(i)
-        return moves'''
-    
-    def empty_squares(self):
-        return ' ' in self.board
-    
-    def num_empty_squares(self):
-        return self.board.count(' ')
-    
     def make_move(self, square, letter):
         if self.board[square] == ' ':
             self.board[square] = letter
@@ -60,8 +49,24 @@ class TicTacToe:
             if all([spot == letter for spot in diagonal2]):
                 return True
         return False
+    
+    def available_moves(self):
+        return[i for i, spot in enumerate(self.board) if spot == ' ']
+        '''moves = []
+        for (i, spot) in enumerate(self.board):
+            # ['x', 'x', 'o'] -->[(0,'x'), (1, 'x'), (2, 'o')]
+            if spot == ' ':
+                moves.ap pend(i)
+        return moves'''
+    
+    def empty_squares(self):
+        return ' ' in self.board
+    
+    def num_empty_squares(self):
+        return self.board.count(' ')
 
 def play(game, x_player, o_player, print_game=True):
+    
     if print_game:
         game.print_board_nums()
 
