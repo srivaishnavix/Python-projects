@@ -1,6 +1,6 @@
 import time
 import math
-from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
+from player import HumanPlayer, RandomComputerPlayer, SmartComputerPlayer
 
 class TicTacToe:
     def __init__(self):
@@ -18,7 +18,7 @@ class TicTacToe:
     @staticmethod
     def print_board_nums():
         #0 | 1 | 2 etc (to show us which number corresponds to a box)
-        number_board = [[str(i+1) for i in range(j*3, (j+1)*3)] for j in range(3)]
+        number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for row in number_board:
             print('| '+' | '.join(row)+' |')
 
@@ -97,6 +97,6 @@ def play(game, x_player, o_player, print_game=True):
 
 if __name__ == '__main__':
     x_player = HumanPlayer('X')
-    o_player = GeniusComputerPlayer('O')
+    o_player = SmartComputerPlayer('O')
     t = TicTacToe()
     play(t, x_player, o_player, print_game=True)
