@@ -8,6 +8,6 @@ def main():
 
     print("That is" , pounds, "pounds. ")
 
-convert_to_pounds = lambda dollars: dollars * 0.82
+convert_to_pounds = lambda dollars: dollars * 0.78 #conversion rate at the time of code
 
 main()

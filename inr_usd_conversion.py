@@ -8,6 +8,6 @@ def main():
 
     print("That is" , usd , "US dollars. ")
 
-convert_to_usd = lambda inr: inr * 0.012
+convert_to_usd = lambda inr: inr * 0.012 # uses conversion rate at the time of code
 
 main()
