@@ -46,4 +46,11 @@ if __name__ =='__main__':
     etime = time()
 
 
-    
+    time = round(elapsedtime(stime,etime),2)
+    speed = speed(inprompt,stime,etime)
+    errors = tperror(prompt)
+
+
+    print("Total time elapsed: ", time, "seconds")
+    print("Your average typing speed is: ", speed, "wpm(words per minute)")
+    print("with the total of ", errors, "errors")
