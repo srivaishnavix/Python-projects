@@ -1,20 +1,20 @@
 from time import time 
 
 def tperror(prompt):
-    global inwords
+    global input
 
     words = prompt.split()
     errors = 0
 
-    for i in range(len(inwords)):
-        if i in (0, len(inwords)-1):
-            if inwords[i] == words[i]:
+    for i in range(len(input)):
+        if i in (0, len(input)-1):
+            if input[i] == words[i]:
                 continue
             else:
                 errors += 1
         else:
-            if inwords[i] == words[i]:
-                if (inwords[i+1] == words[i+1]) & (inwords[i-1] == words[i-1]):
+            if input[i] == words[i]:
+                if (input[i+1] == words[i+1]) & (input[i-1] == words[i-1]):
                     continue
                 else:
                     errors += 1
@@ -24,10 +24,10 @@ def tperror(prompt):
     
 def speed(inprompt, stime, etime):
     global time
-    global inwords
+    global input
 
-    inwords = inprompt.split()
-    twords =len(inwords)
+    input = inprompt.split()
+    twords =len(input)
     speed = twords/time
 
     return speed
